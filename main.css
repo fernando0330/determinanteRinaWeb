@@ -1,0 +1,40 @@
+body{
+	background:url(img/bg.jpg);
+	background-position:center;
+	background-size:100%;
+	margin:0;
+	font-family:arial;
+}
+
+.wrap{
+	padding:5px;
+	margin:0 auto;
+	width:800px;
+	background:#fff;
+	box-shadow: 5px 5px 10px #444;
+}
+
+#content{
+	min-height:73%;
+}
+
+#content h2{
+	text-align:center;
+}
+
+.steps{
+	display:none;
+}
+
+#logo{
+	text-align:center;
+}
+
+#footer{
+	text-align:center;
+	font-size:.9em;
+}
+
+.tblDet input{
+		width:50px;
+}
