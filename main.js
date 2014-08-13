@@ -57,7 +57,7 @@ $(document).ready(function(){
 		$("#step-" + step).show();
 	});
 
-	$("#frmOrden").unbind("submit").submit(function(){
+	$("#frmOrden").unbind("submit").submit(function(){		
 		var formData = $(this).serializeObject();
 		var orden = typeof formData.orden == "string" && formData.orden != null &&  formData.orden.match(/^[0-9]+$/) ? parseInt(formData.orden) : null;
 		if (orden == null) $("#result").html("El valor del orden es inválido");
@@ -124,27 +124,27 @@ $(document).ready(function(){
 				resultado = Determinante.detRaizCuadrada(det1);
 				output+= "<strong>Raiz Cuadrada Determinante 1:</strong><br/>";
 				output+= resultado + "<br/><br/>";
-			}
+			}else output+= "<strong>El determinante #1 no cumple con la condicion para hallar la determinante sacando la raiz cuadrada de cada elemento</strong><br/>";
 			
 			if (Determinante.sumaVectores(Determinante.obtenerSumaFilas(det2)) > Determinante.sumaVectores(Determinante.obtenerProductoColumna(det2))){
 				resultado = Determinante.detRaizCuadrada(det2);
 				output+= "<strong>Raiz Cuadrada Determinante 2:</strong><br/>";
 				output+= resultado + "<br/><br/>";
-			}
+			}else output+= "<strong>El determinante #2 no cumple con la condicion para hallar la determinante sacando la raiz cuadrada de cada elemento</strong><br/>";
 			
 			//b) Se hallara el determinante equivalente a extraer el logaritmo natural de cada elemento, siempre que el producto de las filas sea menor que la suma de las columnas
 			if (Determinante.productoVectores(Determinante.obtenerProductoFilas(det1)) > Determinante.productoVectores(Determinante.obtenerProductoColumna(det1))){
 				resultado = Determinante.detLogaritmoNatural(det1);
 				output+= "<strong>Logaritmo Natural Determinante 1:</strong><br/>";
 				output+= resultado + "<br/><br/>";
-			}
+			}else output+= "<strong>El determinante #1 no cumple con la condicion para hallar la determinante sacando el logaritmo natural de cada elemento</strong><br/>";
+			
 			if (Determinante.productoVectores(Determinante.obtenerProductoFilas(det2)) > Determinante.productoVectores(Determinante.obtenerProductoColumna(det2))){
 				resultado = Determinante.detLogaritmoNatural(det1);
 				output+= "<strong>Logaritmo Natural Determinante 2:</strong><br/>";
 				output+= resultado + "<br/><br/>";
-			}
+			}else output+= "<strong>El determinante #2 no cumple con la condicion para hallar el logaritmo natural de cada elemento</strong><br/>";
 		}
-		
 		$("#output").html(output);
 	});
 
@@ -155,6 +155,7 @@ $(document).ready(function(){
 		$(".steps").hide();
 		$("#step-"  + step).show();
 	});
-
-	$("#step-1").show();
+	setTimeout(function(){
+			$("#step-1").fadeIn();
+	},500);
 });
